@@ -12,7 +12,7 @@ class LinkTest extends TestCase
     {
         $link = new Link();
 
-        $newRel = [ 'new' ];
+        $newRel = array('new');
         $nowRel = $link->getRel();
         $this->assertNotEquals($newRel, $nowRel);
 
@@ -28,18 +28,18 @@ class LinkTest extends TestCase
     public function testSetRelThrowsAnExceptionIfANonStringSetItemIsProvided()
     {
         $link = new Link();
-        $link->setRel([ 1 ]);
+        $link->setRel(array(1));
     }
 
     public function testAddRelAppendsToRelArray()
     {
         $link       = new Link();
         $currentRel = $link->getRel();
-        $this->assertEquals([], $currentRel);
+        $this->assertEquals(array(), $currentRel);
 
         $link->addRel('test');
         $updatedRel = $link->getRel();
-        $this->assertEquals([ 'test' ], $updatedRel);
+        $this->assertEquals(array('test'), $updatedRel);
     }
 
     public function testHrefGetAndSet()

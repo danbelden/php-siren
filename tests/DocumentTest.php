@@ -15,7 +15,7 @@ class DocumentTest extends TestCase
     {
         $document = new Document();
 
-        $newClass = [ 'new' ];
+        $newClass = array('new');
         $nowClass = $document->getClass();
         $this->assertNotEquals($newClass, $nowClass);
 
@@ -30,7 +30,7 @@ class DocumentTest extends TestCase
      */
     public function testSetClassThrowsAnExceptionIfANonStringSetItemIsProvided()
     {
-        $newClass = [ 1 ];
+        $newClass = array(1);
 
         $document = new Document();
         $document->setClass($newClass);
@@ -60,7 +60,7 @@ class DocumentTest extends TestCase
     public function testPropertiesGetAndSet()
     {
         $document          = new Document();
-        $newProperties     = [ 'A' => 'TEST' ];
+        $newProperties     = array('A' => 'TEST');
         $initialProperties = $document->getProperties();
         $this->assertNotEquals($newProperties, $initialProperties);
 
@@ -84,7 +84,7 @@ class DocumentTest extends TestCase
     public function testEntitiesGetAndSet()
     {
         $document        = new Document();
-        $newEntities     = [ new Entity() ];
+        $newEntities     = array(new Entity());
         $initialEntities = $document->getEntities();
         $this->assertNotEquals($newEntities, $initialEntities);
 
@@ -100,7 +100,7 @@ class DocumentTest extends TestCase
     public function testSetEntitiesThrowsAnExceptionWithNonEntityInSet()
     {
         $document    = new Document();
-        $newEntities = [ new Entity(), 1 ];
+        $newEntities = array(new Entity(), 1);
         $document->setEntities($newEntities);
     }
 
@@ -124,7 +124,7 @@ class DocumentTest extends TestCase
     public function testActionsGetAndSet()
     {
         $document       = new Document();
-        $newActions     = [ new Action() ];
+        $newActions     = array(new Action());
         $initialActions = $document->getActions();
         $this->assertNotEquals($newActions, $initialActions);
 
@@ -140,7 +140,7 @@ class DocumentTest extends TestCase
     public function testSetActionsThrowsAnExceptionWithNonActionInSet()
     {
         $document   = new Document();
-        $newActions = [ new Action(), 1 ];
+        $newActions = array(new Action(), 1);
         $document->setActions($newActions);
     }
 
@@ -164,7 +164,7 @@ class DocumentTest extends TestCase
     public function testLinksGetAndSet()
     {
         $document     = new Document();
-        $newLinks     = [ new Link() ];
+        $newLinks     = array(new Link());
         $initialLinks = $document->getLinks();
         $this->assertNotEquals($newLinks, $initialLinks);
 
@@ -180,7 +180,7 @@ class DocumentTest extends TestCase
     public function testSetLinksThrowsAnExceptionWithNonLinkInSet()
     {
         $document = new Document();
-        $newLinks = [ new Link(), 1 ];
+        $newLinks = array(new Link(), 1);
         $document->setLinks($newLinks);
     }
 

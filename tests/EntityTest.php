@@ -13,7 +13,7 @@ class EntityTest extends TestCase
     {
         $entity = new Entity();
 
-        $newClass = [ 'new' ];
+        $newClass = array('new');
         $nowClass = $entity->getClass();
         $this->assertNotEquals($newClass, $nowClass);
 
@@ -29,25 +29,25 @@ class EntityTest extends TestCase
     public function testSetClassThrowsAnExceptionIfANonStringSetItemIsProvided()
     {
         $entity = new Entity();
-        $entity->setClass([ 1 ]);
+        $entity->setClass(array(1));
     }
 
     public function testAddClassAppendsToClassArray()
     {
         $entity       = new Entity();
         $currentClass = $entity->getClass();
-        $this->assertEquals([], $currentClass);
+        $this->assertEquals(array(), $currentClass);
 
         $entity->addClass('test');
         $updatedClass = $entity->getClass();
-        $this->assertEquals([ 'test' ], $updatedClass);
+        $this->assertEquals(array('test'), $updatedClass);
     }
 
     public function testRelGetAndSet()
     {
         $entity = new Entity();
 
-        $newRel = [ 'new' ];
+        $newRel = array('new');
         $nowRel = $entity->getRel();
         $this->assertNotEquals($newRel, $nowRel);
 
@@ -63,18 +63,18 @@ class EntityTest extends TestCase
     public function testSetRelThrowsAnExceptionIfANonStringSetItemIsProvided()
     {
         $entity = new Entity();
-        $entity->setRel([ 1 ]);
+        $entity->setRel(array(1));
     }
 
     public function testAddRelAppendsToRelArray()
     {
         $entity     = new Entity();
         $currentRel = $entity->getRel();
-        $this->assertEquals([], $currentRel);
+        $this->assertEquals(array(), $currentRel);
 
         $entity->addRel('test');
         $updatedRel = $entity->getRel();
-        $this->assertEquals([ 'test' ], $updatedRel);
+        $this->assertEquals(array('test'), $updatedRel);
     }
 
     public function testHrefGetAndSet()
@@ -103,7 +103,7 @@ class EntityTest extends TestCase
     public function testPropertiesGetAndSet()
     {
         $entity            = new Entity();
-        $newProperties     = [ 'A' => 'TEST' ];
+        $newProperties     = array('A' => 'TEST');
         $initialProperties = $entity->getProperties();
         $this->assertNotEquals($newProperties, $initialProperties);
 
@@ -127,7 +127,7 @@ class EntityTest extends TestCase
     public function testLinksGetAndSet()
     {
         $entity       = new Entity();
-        $newLinks     = [ new Link() ];
+        $newLinks     = array(new Link());
         $initialLinks = $entity->getLinks();
         $this->assertNotEquals($newLinks, $initialLinks);
 
@@ -143,7 +143,7 @@ class EntityTest extends TestCase
     public function testSetLinksThrowsAnExceptionWithNonLinkInSet()
     {
         $entity   = new Entity();
-        $newLinks = [ new Link(), 1 ];
+        $newLinks = array(new Link(), 1 );
         $entity->setLinks($newLinks);
     }
 
