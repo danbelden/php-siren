@@ -1,0 +1,23 @@
+{
+    "name": "danbelden/php-hypermedia",
+    "description": "A PHP Library for handling JSON hypermedia formats",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dan Belden",
+            "email": "me@danbelden.com",
+            "homepage": "https://github.com/danbelden"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "~4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Siren\\": "src/",
+            "Tests\\Siren\\": "tests/"
+        }
+    }
+}
