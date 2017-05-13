@@ -1,4 +1,9 @@
 # danbelden/php-siren
+
+[![Build Status](https://travis-ci.org/danbelden/php-siren.svg?branch=master)](https://travis-ci.org/danbelden/php-siren)
+[![Latest Stable Version](https://poser.pugx.org/danbelden/php-siren/version.svg)](https://packagist.org/packages/danbelden/php-siren)
+[![Total Downloads](https://poser.pugx.org/danbelden/php-siren/downloads.svg)](https://packagist.org/packages/danbelden/php-siren)
+
 A PHP Library for handling Siren JSON hypermedia documents
 
 # Overview
@@ -9,9 +14,22 @@ This is a library based around the Siren hypermedia data standard:
 
 It provides objects and validation for handling this structured data format.
 
-# Usage
+# Requires
 
-Using the same example on the standards github link above:
+PHP 5.3 and above.
+
+# Installation
+
+## Composer
+
+To install this package with composer, run the following command:
+
+```composer require danbelden/php-siren "^1.0"```
+
+# Documentation
+
+Using the example target JSON defined in the standards:
+- https://github.com/kevinswiber/siren
 
 ```
 $document = new Document();

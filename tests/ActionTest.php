@@ -128,7 +128,7 @@ class ActionTest extends TestCase
     {
         $action = new Action();
 
-        $newFields = [ new Field() ];
+        $newFields = array(new Field());
         $nowFields = $action->getFields();
         $this->assertNotEquals($newFields, $nowFields);
 
@@ -143,7 +143,7 @@ class ActionTest extends TestCase
      */
     public function testFieldsThrowsAnExceptionIfNoneFieldInSet()
     {
-        $newFields = [ new Field(), 1 ];
+        $newFields = array(new Field(), 1 );
 
         $action = new Action();
         $action->setFields($newFields);
