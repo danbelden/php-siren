@@ -40,11 +40,11 @@ class DocumentTest extends TestCase
     {
         $document     = new Document();
         $currentClass = $document->getClass();
-        $this->assertEquals([], $currentClass);
+        $this->assertEquals(array(), $currentClass);
 
         $document->addClass('test');
         $updatedClass = $document->getClass();
-        $this->assertEquals([ 'test' ], $updatedClass);
+        $this->assertEquals(array('test'), $updatedClass);
     }
 
     /**
