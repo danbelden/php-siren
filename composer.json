@@ -1,6 +1,6 @@
 {
-    "name": "danbelden/php-hypermedia",
-    "description": "A PHP Library for handling JSON hypermedia formats",
+    "name": "danbelden/php-siren",
+    "description": "A PHP Library for handling Siren JSON hypermedia",
     "type": "library",
     "license": "MIT",
     "authors": [
