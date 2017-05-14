@@ -267,4 +267,45 @@ class Document
 
         return $this;
     }
+
+    /**
+     * Convert object to array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        $data = array();
+
+        if (!empty($this->getClass())) {
+            $data['class'] = $this->getClass();
+        }
+
+        if (!empty($this->getProperties())) {
+            $data['properties'] = $this->getProperties();
+        }
+
+        if (!empty($this->getEntities())) {
+            $data['entities'] = array();
+            foreach ($this->getEntities() as $entity) {
+                $data['entities'][] = $entity->toArray();
+            }
+        }
+
+        if (!empty($this->getActions())) {
+            $data['actions'] = array();
+            foreach ($this->getActions() as $action) {
+                $data['actions'][] = $action->toArray();
+            }
+        }
+
+        if (!empty($this->getLinks())) {
+            $data['links'] = array();
+            foreach ($this->getLinks() as $link) {
+                $data['links'][] = $link->toArray();
+            }
+        }
+
+        return $data;
+    }
 }

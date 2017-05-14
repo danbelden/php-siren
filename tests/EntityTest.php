@@ -163,4 +163,21 @@ class EntityTest extends TestCase
         $firstLink = array_shift($links);
         $this->assertEquals($link, $firstLink);
     }
+
+    public function testToArray()
+    {
+        $expexctedArray = array(
+            'class' => array( 'items', 'collection' ),
+            'rel'   => array( 'http://x.io/rels/order-items' ),
+            'href'  => 'http://api.x.io/orders/42/items'
+        );
+
+        $entity = new Entity();
+        $entity->setClass(array( 'items', 'collection' ))
+            ->setRel(array( 'http://x.io/rels/order-items' ))
+            ->setHref('http://api.x.io/orders/42/items');
+        $actualArray = $entity->toArray();
+
+        $this->assertEquals($expexctedArray, $actualArray);
+    }
 }

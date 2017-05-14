@@ -224,4 +224,43 @@ class Action
 
         return $this;
     }
+
+    /**
+     * Convert object to array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        $data = array();
+
+        if ($this->getName() !== null) {
+            $data['name'] = $this->getName();
+        }
+
+        if ($this->getTitle() !== null) {
+            $data['title'] = $this->getTitle();
+        }
+
+        if ($this->getMethod() !== null) {
+            $data['method'] = $this->getMethod();
+        }
+
+        if ($this->getHref() !== null) {
+            $data['href'] = $this->getHref();
+        }
+
+        if ($this->getType() !== null) {
+            $data['type'] = $this->getType();
+        }
+
+        if (!empty($this->getFields())) {
+            $data['fields'] = array();
+            foreach ($this->getFields() as $field) {
+                $data['fields'][] = $field->toArray();
+            }
+        }
+
+        return $data;
+    }
 }

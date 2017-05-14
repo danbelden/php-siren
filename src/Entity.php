@@ -251,4 +251,39 @@ class Entity
 
         return $this;
     }
+
+    /**
+     * Convert object to array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        $data = array();
+
+        if (!empty($this->getClass())) {
+            $data['class'] = $this->getClass();
+        }
+
+        if (!empty($this->getRel())) {
+            $data['rel'] = $this->getRel();
+        }
+
+        if ($this->getHref() !== null) {
+            $data['href'] = $this->getHref();
+        }
+
+        if (!empty($this->getProperties())) {
+            $data['properties'] = $this->getProperties();
+        }
+
+        if (!empty($this->getLinks())) {
+            $data['links'] = array();
+            foreach ($this->getLinks() as $link) {
+                $data['links'][] = $link->toArray();
+            }
+        }
+
+        return $data;
+    }
 }

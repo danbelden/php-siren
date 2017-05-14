@@ -101,4 +101,28 @@ class Field
 
         return $this;
     }
+
+    /**
+     * Convert object to array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        $data = array();
+
+        if ($this->getName() !== null) {
+            $data['name'] = $this->getName();
+        }
+
+        if ($this->getType() !== null) {
+            $data['type'] = $this->getType();
+        }
+
+        if ($this->getValue() !== null) {
+            $data['value'] = $this->getValue();
+        }
+
+        return $data;
+    }
 }

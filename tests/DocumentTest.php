@@ -2,9 +2,10 @@
 
 namespace Tests\Siren;
 
+use Siren\Action;
 use Siren\Document;
 use Siren\Entity;
-use Siren\Action;
+use Siren\Field;
 use Siren\Link;
 use PHPUnit\Framework\TestCase;
 use LogicException;
@@ -199,5 +200,108 @@ class DocumentTest extends TestCase
 
         $firstLink = array_shift($links);
         $this->assertEquals($link, $firstLink);
+    }
+
+    public function testToArray()
+    {
+        $expexctedArray = array(
+            'class' => array('order'),
+            'properties' => array(
+                'orderNumber' => 42,
+                'itemCount'   => 3,
+                'status'      => 'pending'
+            ),
+            'entities' => array(
+                array(
+                    'class'      => array('info', 'customer'),
+                    'rel'        => array('http://x.io/rels/customer'),
+                    'properties' => array(
+                        'customerId' => 'pj123',
+                        'name'       => 'Peter Joseph'
+                    ),
+                    'links'      => array(
+                        array(
+                            'rel'  => array('self'),
+                            'href' => 'http://api.x.io/customers/pj123'
+                        )
+                    )
+                )
+            ),
+            'actions' => array(
+                array(
+                    'name'   => 'add-item',
+                    'title'  => 'Add Item',
+                    'method' => 'POST',
+                    'href'   => 'http://api.x.io/orders/42/items',
+                    'type'   => 'application/x-www-form-urlencoded',
+                    'fields' => array(
+                        array(
+                            'name'  => 'orderNumber',
+                            'type'  => 'hidden',
+                            'value' => '42',
+                        )
+                    )
+                )
+            ),
+            'links' => array(
+                array(
+                    'rel'  => array('self'),
+                    'href' => 'http://api.x.io/orders/42'
+                )
+            )
+        );
+
+        $document = new Document();
+        $document->addClass('order');
+
+        $properties = array(
+            'orderNumber' => 42,
+            'itemCount'   => 3,
+            'status'      => 'pending'
+        );
+        $document->setProperties($properties);
+
+        $entityOneLink = new Link();
+        $entityOneLink->setRel(array( 'self' ))
+            ->setHref('http://api.x.io/customers/pj123');
+
+        $entityOne = new Entity();
+        $entityOne->setClass(array( 'info', 'customer' ))
+            ->setRel(array( 'http://x.io/rels/customer' ))
+            ->setProperties(array(
+                'customerId' => 'pj123',
+                'name' => 'Peter Joseph'
+            ))
+            ->setLinks(array( $entityOneLink ));
+
+        $entities = array( $entityOne );
+        $document->setEntities($entities);
+
+        $actionFieldOne = new Field();
+        $actionFieldOne->setName('orderNumber')
+            ->setType('hidden')
+            ->setValue('42');
+
+        $actionOne = new Action();
+        $actionOne->setName('add-item')
+            ->setTitle('Add Item')
+            ->setMethod('POST')
+            ->setHref('http://api.x.io/orders/42/items')
+            ->setType('application/x-www-form-urlencoded')
+            ->setFields(array( $actionFieldOne ));
+
+        $actions = array( $actionOne );
+        $document->setActions($actions);
+
+        $linkOne = new Link();
+        $linkOne->setRel(array( 'self' ))
+            ->setHref('http://api.x.io/orders/42');
+
+        $links = array( $linkOne );
+        $document->setLinks($links);
+
+        $actualArray = $document->toArray();
+
+        $this->assertEquals($expexctedArray, $actualArray);
     }
 }

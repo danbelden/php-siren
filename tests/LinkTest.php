@@ -64,4 +64,19 @@ class LinkTest extends TestCase
         $link = new Link();
         $link->setHref(1);
     }
+
+    public function testToArray()
+    {
+        $expexctedArray = array(
+            'rel'  => array( 'self' ),
+            'href' => 'http://api.x.io/orders/42'
+        );
+
+        $link = new Link();
+        $link->setRel(array( 'self' ))
+            ->setHref('http://api.x.io/orders/42');
+        $actualArray = $link->toArray();
+
+        $this->assertEquals($expexctedArray, $actualArray);
+    }
 }

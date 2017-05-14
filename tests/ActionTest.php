@@ -148,4 +148,55 @@ class ActionTest extends TestCase
         $action = new Action();
         $action->setFields($newFields);
     }
+
+    public function testToArray()
+    {
+        $expexctedArray = array(
+            'name'   => 'add-item',
+            'title'  => 'Add Item',
+            'method' => 'POST',
+            'href'   => 'http://api.x.io/orders/42/items',
+            'type'   => 'application/x-www-form-urlencoded',
+            'fields' => array(
+                array(
+                    'name'  => 'orderNumber',
+                    'type'  => 'hidden',
+                    'value' => '42'
+                ),
+                array(
+                    'name'  => 'productCode',
+                    'type'  => 'text'
+                ),
+                array(
+                    'name'  => 'quantity',
+                    'type'  => 'number'
+                )
+            )
+        );
+
+        $actionFieldOne = new Field();
+        $actionFieldOne->setName('orderNumber')
+            ->setType('hidden')
+            ->setValue('42');
+
+        $actionFieldTwo = new Field();
+        $actionFieldTwo->setName('productCode')
+            ->setType('text');
+
+        $actionFieldThree = new Field();
+        $actionFieldThree->setName('quantity')
+            ->setType('number');
+
+        $action = new Action();
+        $action->setName('add-item')
+            ->setTitle('Add Item')
+            ->setMethod('POST')
+            ->setHref('http://api.x.io/orders/42/items')
+            ->setType('application/x-www-form-urlencoded')
+            ->setFields(array( $actionFieldOne, $actionFieldTwo, $actionFieldThree ));
+
+        $actualArray = $action->toArray();
+
+        $this->assertEquals($expexctedArray, $actualArray);
+    }
 }

@@ -66,4 +66,21 @@ class FieldTest extends TestCase
         $updatedValue = $field->getValue();
         $this->assertEquals($newValue, $updatedValue);
     }
+
+    public function testToArray()
+    {
+        $expexctedArray = array(
+            'name'  => 'orderNumber' ,
+            'type'  => 'hidden',
+            'value' => '42'
+        );
+
+        $field = new Field();
+        $field->setName('orderNumber')
+            ->setType('hidden')
+            ->setValue('42');
+        $actualArray = $field->toArray();
+
+        $this->assertEquals($expexctedArray, $actualArray);
+    }
 }

@@ -94,4 +94,24 @@ class Link
 
         return $this;
     }
+
+    /**
+     * Convert object to array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        $data = array();
+
+        if (!empty($this->getRel())) {
+            $data['rel'] = $this->getRel();
+        }
+
+        if ($this->getHref() !== null) {
+            $data['href'] = $this->getHref();
+        }
+
+        return $data;
+    }
 }
