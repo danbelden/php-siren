@@ -277,31 +277,36 @@ class Document
     {
         $data = array();
 
-        if (!empty($this->getClass())) {
-            $data['class'] = $this->getClass();
+        $class = $this->getClass();
+        if (!empty($class)) {
+            $data['class'] = $class;
         }
 
-        if (!empty($this->getProperties())) {
-            $data['properties'] = $this->getProperties();
+        $properties = $this->getProperties();
+        if (!empty($properties)) {
+            $data['properties'] = $properties;
         }
 
-        if (!empty($this->getEntities())) {
+        $entities = $this->getEntities();
+        if (!empty($entities)) {
             $data['entities'] = array();
-            foreach ($this->getEntities() as $entity) {
+            foreach ($entities as $entity) {
                 $data['entities'][] = $entity->toArray();
             }
         }
 
-        if (!empty($this->getActions())) {
+        $actions = $this->getActions();
+        if (!empty($actions)) {
             $data['actions'] = array();
-            foreach ($this->getActions() as $action) {
+            foreach ($actions as $action) {
                 $data['actions'][] = $action->toArray();
             }
         }
 
-        if (!empty($this->getLinks())) {
+        $links = $this->getLinks();
+        if (!empty($links)) {
             $data['links'] = array();
-            foreach ($this->getLinks() as $link) {
+            foreach ($links as $link) {
                 $data['links'][] = $link->toArray();
             }
         }

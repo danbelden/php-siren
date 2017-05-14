@@ -111,16 +111,19 @@ class Field
     {
         $data = array();
 
-        if ($this->getName() !== null) {
-            $data['name'] = $this->getName();
+        $name = $this->getName();
+        if ($name !== null) {
+            $data['name'] = $name;
         }
 
-        if ($this->getType() !== null) {
-            $data['type'] = $this->getType();
+        $type = $this->getType();
+        if ($type !== null) {
+            $data['type'] = $type;
         }
 
-        if ($this->getValue() !== null) {
-            $data['value'] = $this->getValue();
+        $value = $this->getValue();
+        if ($value !== null) {
+            $data['value'] = $value;
         }
 
         return $data;

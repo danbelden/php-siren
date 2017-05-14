@@ -261,25 +261,30 @@ class Entity
     {
         $data = array();
 
-        if (!empty($this->getClass())) {
-            $data['class'] = $this->getClass();
+        $class = $this->getClass();
+        if (!empty($class)) {
+            $data['class'] = $class;
         }
 
-        if (!empty($this->getRel())) {
-            $data['rel'] = $this->getRel();
+        $rel = $this->getRel();
+        if (!empty($rel)) {
+            $data['rel'] = $rel;
         }
 
-        if ($this->getHref() !== null) {
-            $data['href'] = $this->getHref();
+        $href = $this->getHref();
+        if ($href !== null) {
+            $data['href'] = $href;
         }
 
-        if (!empty($this->getProperties())) {
-            $data['properties'] = $this->getProperties();
+        $properties = $this->getProperties();
+        if (!empty($properties)) {
+            $data['properties'] = $properties;
         }
 
-        if (!empty($this->getLinks())) {
+        $links = $this->getLinks();
+        if (!empty($links)) {
             $data['links'] = array();
-            foreach ($this->getLinks() as $link) {
+            foreach ($links as $link) {
                 $data['links'][] = $link->toArray();
             }
         }

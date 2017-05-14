@@ -104,12 +104,14 @@ class Link
     {
         $data = array();
 
-        if (!empty($this->getRel())) {
-            $data['rel'] = $this->getRel();
+        $rel = $this->getRel();
+        if (!empty($rel)) {
+            $data['rel'] = $rel;
         }
 
-        if ($this->getHref() !== null) {
-            $data['href'] = $this->getHref();
+        $href = $this->getHref();
+        if ($href !== null) {
+            $data['href'] = $href;
         }
 
         return $data;

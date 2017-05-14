@@ -234,29 +234,35 @@ class Action
     {
         $data = array();
 
-        if ($this->getName() !== null) {
-            $data['name'] = $this->getName();
+        $name = $this->getName();
+        if ($name !== null) {
+            $data['name'] = $name;
         }
 
-        if ($this->getTitle() !== null) {
-            $data['title'] = $this->getTitle();
+        $title = $this->getTitle();
+        if ($title !== null) {
+            $data['title'] = $title;
         }
 
-        if ($this->getMethod() !== null) {
-            $data['method'] = $this->getMethod();
+        $method = $this->getMethod();
+        if ($method !== null) {
+            $data['method'] = $method;
         }
 
-        if ($this->getHref() !== null) {
-            $data['href'] = $this->getHref();
+        $href = $this->getHref();
+        if ($href !== null) {
+            $data['href'] = $href;
         }
 
-        if ($this->getType() !== null) {
-            $data['type'] = $this->getType();
+        $type = $this->getType();
+        if ($type !== null) {
+            $data['type'] = $type;
         }
 
-        if (!empty($this->getFields())) {
+        $fields = $this->getFields();
+        if (!empty($fields)) {
             $data['fields'] = array();
-            foreach ($this->getFields() as $field) {
+            foreach ($fields as $field) {
                 $data['fields'][] = $field->toArray();
             }
         }
