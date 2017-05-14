@@ -10,7 +10,9 @@
             "homepage": "https://github.com/danbelden"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=5.3"
+    },
     "require-dev": {
         "phpunit/phpunit": "~4.7"
     },
