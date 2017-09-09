@@ -1,6 +1,7 @@
 # danbelden/php-siren
 
 [![Build Status](https://travis-ci.org/danbelden/php-siren.svg?branch=master)](https://travis-ci.org/danbelden/php-siren)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/danbelden/php-siren/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/danbelden/php-siren/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/danbelden/php-siren/version.svg)](https://packagist.org/packages/danbelden/php-siren)
 [![Total Downloads](https://poser.pugx.org/danbelden/php-siren/downloads.svg)](https://packagist.org/packages/danbelden/php-siren)
 
