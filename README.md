@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/danbelden/php-siren.svg?branch=master)](https://travis-ci.org/danbelden/php-siren)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/danbelden/php-siren/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/danbelden/php-siren/?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6fb500c415e1e62a37b5/maintainability)](https://codeclimate.com/github/danbelden/php-siren/maintainability)
 [![Latest Stable Version](https://poser.pugx.org/danbelden/php-siren/version.svg)](https://packagist.org/packages/danbelden/php-siren)
 [![Total Downloads](https://poser.pugx.org/danbelden/php-siren/downloads.svg)](https://packagist.org/packages/danbelden/php-siren)
 
